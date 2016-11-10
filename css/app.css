@@ -1,0 +1,168 @@
+/*
+ *这是单独为hello mui准备的个性化css，可以覆盖标准mui的css定义；
+ * 在实际项目开发时，建议为App单独写一个css文件，从而实现项目的自定义皮肤功能；
+ * 
+ * */
+.mui-plus.mui-android header.mui-bar{
+	display: none;
+}
+.mui-plus.mui-android .mui-bar-nav~.mui-content{
+	padding: 0;
+}
+
+/*hm开头的表示仅为 Hello MUI示例定义*/
+.hm-description{
+	margin: .5em 0;
+}
+
+.hm-description>li {
+	font-size: 14px;
+	color: #8f8f94;
+}
+a{
+	color:#FDC641;
+}
+				
+				span.mui-icon {
+					font-size: 24px;
+					color:#8f8f94;
+				}
+				.mui-grid-view li:nth-of-type(1) span.mui-icon{
+					color: #FDC641;
+				}
+				.mui-grid-view li:nth-of-type(2) span.mui-icon{
+					color: #c40000;
+				}
+				.mui-grid-view li:nth-of-type(3) span.mui-icon{
+					color: #88cd67;
+				}
+				.mui-grid-view li:nth-of-type(4) span.mui-icon{
+					color: #2187E7;
+				}
+				.mui-grid-view li:nth-of-type(5) span.mui-icon{
+					color: #F0AD4E;
+				}
+				.mui-grid-view li:nth-of-type(6) span.mui-icon{
+					color: #C7254E;
+				}
+				.mui-grid-view li:nth-of-type(7) span.mui-icon{
+					color: #C40000;
+				}
+				.mui-grid-view li:nth-of-type(8) span.mui-icon{
+					color:#4CD964;
+				}
+				.mui-grid-view li:nth-of-type(9) span.mui-icon{
+					color:#6641E2;
+				}
+				
+				
+				.mui-off-canvas-left {
+					color: #fff;
+				}
+				.mui-bar-nav~.mui-content{
+					margin-top: 40px;
+				}
+				
+				.title {
+					margin: 35px 15px 10px;
+				}
+				
+				.title+.content {
+					margin: 10px 15px 35px;
+					color: #bbb;
+					text-indent: 1em;
+					font-size: 14px;
+					line-height: 24px;
+				}
+				
+				input {
+					color: #fff;
+				}
+				
+				ul.ng-scope {
+					margin: 0;
+				}
+				
+				#searchbox ul li {
+					list-style-type: none;
+					color: #f3f3f3;
+					border-bottom: 1px solid white;
+					margin-left: -35px;
+				}
+				
+				#searchbox li.ng-scope {
+					height: 40px;
+					line-height: 40px;
+				}
+				
+				#searchbox li.ng-scope:hover {
+					background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(40%, transparent), to(rgba(210, 210, 210, 0.8)));
+				}
+				
+				#searchbox ul li a {
+					color: white;
+				}
+				
+				#searchbox {
+					color: white;
+					width: 100%;
+				}
+				
+				.fadeIn {
+					animation-name: fadeIn;
+					animation-duration: 2s;
+				}
+				
+				#search_input {
+					border-bottom: 2px solid white;
+					margin-bottom: 5px;
+				}
+				
+				#searchbox .mui-placeholder {
+					text-align: left;
+					padding-left: 5px;
+				}
+				
+				#searchbox .mui-icon {
+					color: #f3f3f3;
+				}
+				
+
+				/*首页遮罩筛选*/
+				
+				#zhezhao {
+					width: 100%;
+					height: 800px;
+					padding: 0;
+					margin: 0;
+					background-color: #000;
+					opacity: 0.6;
+					position: absolute;
+					left: 0;
+					top: 44px;
+					display: none;
+					z-index: 1000;
+				}
+				
+.mui-bar-tab .mui-tab-item.mui-active {
+    color: #FDC641;
+    }
+.mui-content>.mui-table-view:first-child {
+    margin-top: 0;
+}
+.mui-grid-view.mui-grid-9 .mui-table-view-cell.mui-active{
+	background:#ddd;
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-webkit-transition: all .5s;
+}
+
+ #tabbar-with-chat{
+ 	margin-top:50px;
+ }
+
+.mui-card-media {
+    background-position: center!important;
+    background-size: cover;
+  }
+ 

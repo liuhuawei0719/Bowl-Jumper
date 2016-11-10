@@ -1,0 +1,58 @@
+{
+"tab_2nd":[
+	{"num":"1"},{"num":"2"},{"num":"3"},{"num":"4"},
+	{"num":"5"},{"num":"6"},{"num":"7"},{"num":"8"},
+	{"num":"9"},{"num":"10"},{"num":"11"},{"num":"12"},
+	{"num":"13"},{"num":"14"},{"num":"15"},{"num":"16"}
+	],
+"tab_3rd":[
+	{"name":"刘华威","occupation":"董事长","email":"yewenjie@sina.com"},
+	{"name":"黄安军","occupation":"总经理","email":"aaa@163.com"},
+	{"name":"闫振甫","occupation":"员工","email":"yanzhenfu@sina.com"},
+	{"name":"王甲伟","occupation":"大仙儿","email":"wangjiawei@sina.com"},
+	{"name":"潘旭","occupation":"世道王者","email":"wangzhe@sina.com"}
+	],
+"foods":[
+	{"name":"鱼香肉丝盖浇饭"},{"name":"青椒鸡蛋盖浇饭"},{"name":"腐竹肉片盖浇饭"},
+	{"name":"黄瓜鸡蛋盖浇饭"},{"name":"青椒肉丝盖浇饭"},{"name":"番茄鸡蛋盖浇饭"},
+	{"name":"烧茄子盖浇饭"},{"name":"木耳炒肉盖浇饭"},{"name":"玉米鸡丁盖浇饭"},
+	{"name":"爆炒猪肝盖浇饭"},{"name":"青菜平菇盖浇饭"},{"name":"宫爆鸡丁盖浇饭"},
+	{"name":"胡萝卜炒肉盖浇饭"},{"name":"土豆鸡丁盖浇饭"},{"name":"土豆牛肉盖浇饭"}
+	],
+"tab_label":[
+		{"name":"首页","href":"#tabbar","icon":"home"},
+		{"name":"消息","href":"#tabbar-with-chat","icon":"email"},
+		{"name":"通讯录","href":"#tabbar-with-contact","icon":"contact"},
+		{"name":"设置","href":"setting.html","icon":"gear"}
+	],
+"slider_item":[
+		{"img":"1","caption":"好吃的让你受不了"},
+		{"img":"2","caption":"幸福就是可以一起睡觉"},
+		{"img":"3","caption":"想要一间这样的木屋，静静的喝咖啡"},
+		{"img":"4","caption":"Color of SIP CBD"},
+		{"img":"1","caption":"好吃的让你受不了"}
+	],
+"grid_view":[
+		{"name":"美食","icon":"home"},
+		{"name":"夜市","icon":"email"}, 
+		{"name":"甜点","icon":"chatbubble"},
+		{"name":"饮品","icon":"location"},
+		{"name":"休闲","icon":"search"},		
+		{"name":"佳肴","icon":"phone"},
+		{"name":"特色","icon":"gear"},
+		{"name":"美酒","icon":"info"},
+		{"name":"水果","icon":"more"}
+	],
+"card":[
+		{"name":"小伟","time":"6个小时前","img":"1"},
+		{"name":"小华","time":"7个小时前","img":"2"},
+		{"name":"小王","time":"8个小时前","img":"3"},
+		{"name":"小黄","time":"9个小时前","img":"4"},
+		{"name":"小刘","time":"7个小时前","img":"2"},
+		{"name":"小红","time":"7个小时前","img":"3"},
+		{"name":"小明","time":"7个小时前","img":"1"},
+		{"name":"小张","time":"7个小时前","img":"4"},
+		{"name":"小闫","time":"7个小时前","img":"3"},
+		{"name":"小姚","time":"7个小时前","img":"1"}
+	]
+}

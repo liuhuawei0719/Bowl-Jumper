@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/app.css" />
+   	<style>
+   		.mui-input-row input{
+				color:black;
+			}
+   	</style>
+</head>
+<body>
+	<!-- topbar -->
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">用户信息</h1>
+	</header>
+	
+	<!--  主要内容  -->
+	<div class="mui-content">
+		<!--用户的头像-->
+		<div class="content">
+			<div class="mui-collapse-content" align="center" style="margin-top: 10px;height:120px;">
+				<a id="headImg"><img width="120px" height="120px" style="border-radius:360px" id="userImg" src="images/user-photo.png" /></a>
+				<input type="file" id="updateImg" style="display:none" onchange="btnOnchange()" accept="image/png,image/gif,image/jpg,image/bmp"/>
+			</div>
+			
+			<div class="mui-input-group">
+				<div class="mui-input-row">
+					<label>账号</label>
+					<label id='account' class="mui-input-clear mui-input">account</label>
+				</div>
+				<div class="mui-input-row">
+					<label>邮箱</label>
+					<label id='email' class="mui-input-clear mui-input">email</label>
+				</div>
+				<div class="mui-input-row">
+					<label>手机</label>
+					<input id='phone' type="text" class="mui-input-clear mui-input" placeholder="请输入手机号码">
+				</div>
+				<div class="mui-input-row">
+					<label>原密码</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入当前密码">
+				</div>
+				<div class="mui-input-row">
+					<label>新密码</label>
+					<input id='password_new' type="password" class="mui-input-clear mui-input" placeholder="请输入新密码">
+				</div>
+				<div class="mui-input-row">
+					<label>确认密码</label>
+					<input id='password_confirm' type="password" class="mui-input-clear mui-input" placeholder="请确认新密码">
+				</div>
+				
+				<button id="modify" type="button" class="mui-btn mui-btn-primary mui-btn-block">修改</button>
+			</div>
+		</div>
+	</div>
+	
+	<!--  这里是实现js功能  -->
+	<script type="text/javascript" src="js/app.js" ></script>
+	<script type="text/javascript" src="js/service.js" ></script>
+	<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<script type="text/javascript" src="js/bmob-min.js" ></script>
+	<script type="text/javascript" charset="UTF-8">
+      	mui.init();
+      	swipeBack:true //启用右滑关闭功能
+      	var state = app.getState(); //获取用户信息
+
+      	//设置用户的基本信息
+      	if(state.headImg!="")
+      	{
+      		document.getElementById("userImg").src=state.headImg;
+      	}
+      	document.getElementById("account").innerHTML=state.account;
+      	document.getElementById("email").innerHTML=state.email;
+      	document.getElementById("phone").value=state.phone;
+      	
+      	//-----------------------
+      	//初始化bmob的服务端
+		Bmob.initialize("76493c30e1ef177da437273634f53648", "f9547b64e4367f44d77ef5e405420a6d");
+
+		//-------------------------------------------
+      	//点击事件
+      	document.getElementById("headImg").addEventListener('tap',function(e){
+			$('#updateImg').click();
+      	});
+      	
+      	document.getElementById("modify").addEventListener('tap',function(e){
+      		//修改用户信息
+			var UserInfo = Bmob.Object.extend("userinfo");
+			var query = new Bmob.Query(UserInfo);
+			query.equalTo("account",state.account);
+			query.first({
+		  		success: function(user) {
+		  			if(user!=null)
+		  			{
+		  				var phone = document.getElementById("phone").value;
+		  				var password = document.getElementById("password").value;
+		  				var password_new = document.getElementById("password_new").value;
+		  				var password_confirm = document.getElementById("password_confirm").value;
+		  				// 回调中可以取得这个 userinfo 对象的一个实例，然后就可以修改它了
+		  				//修改用户头像
+				    	state.headImg=document.getElementById("userImg").src;
+				      	user.set("headImg",state.headImg);
+				      	
+				      	//修改手机号
+				      	if(app.checkPhone(phone))
+				      	{
+				      		state.phone=phone;
+				      		user.set("phone",state.phone);
+				      	}
+				      	else
+				      	{
+				      		plus.nativeUI.toast("输入的手机号码有误！");
+				      		return;
+				      	}
+				      	
+				      	//修改密码
+				      	//如果原密码为空，则不修改密码
+				      	if(password!="")
+				      	{
+				      		//先判断原密码是否正确
+				      		if(password==user.get("password"))
+				      		{
+				      			if(password_new==password_confirm)
+				      			{
+				      				if(password_new.length>=6)
+				      				{
+				      					state.password=password_new;
+				      					user.set("password",state.password);
+				      				}
+				      				else
+				      				{
+				      					plus.nativeUI.toast("新的密码长度小于6！");
+					      				return;
+				      				}
+				      			}
+				      			else
+				      			{
+				      				plus.nativeUI.toast("新密码和确认密码不同！");
+					      			return;
+				      			}
+				      		}
+				      		else
+					      	{
+					      		plus.nativeUI.toast("当前密码输入错误！");
+					      		return;
+					      	}
+				      	}
+				      	else if(password_new != "" || password_confirm != "")
+				      	{
+				      		plus.nativeUI.toast("请先输入原密码，再输入新密码！");
+				      		return;
+				      	}
+				      	
+				      	user.save();	//保存用户信息
+				      	app.setState(state);	//设置用户状态
+				      	state=app.getState()	//重新获取用户信息
+				      	plus.nativeUI.toast("已更新用户信息！");
+		  			}
+			    	else
+			    	{
+			    		plus.nativeUI.toast("修改用户信息失败!");
+			    	}
+			  	},
+			  	error: function(error) {
+			    	plus.nativeUI.toast("查询失败: " + error.code + " " + error.message);
+			  }
+		  	});
+      	});
+      	
+      	function btnOnchange(){
+      		var fileUploadControl = $("#updateImg")[0];
+			var file = fileUploadControl.files[0];
+			if (fileUploadControl.files.length > 0) 
+			{
+				//先上传图片文件
+				var name = "headImg.png";
+				var file = new Bmob.File(name, file);
+				file.save().then(function(o) {
+					var imgUrl=o.url();
+					//--------------
+					//将选取的图片保存为微缩图并存在服务器上
+			    	Bmob.Image.thumbnail({
+			    			"image":imgUrl,
+			    			"mode":1,
+			    			"quality":100,
+			    			"height":120
+			    		}
+					  ).then(function(obj) {
+					  	$("#userImg").attr("src","http://file.bmob.cn/"+obj.url);
+					});
+					file.destroy();
+					//--------------
+				}, function(error) {
+					plus.nativeUI.toast(error);
+				  // the save failed.
+				});
+			}
+
+      	};
+      	
+    </script>
+	
+</body>
+</html>

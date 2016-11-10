@@ -1,0 +1,38 @@
+.ui-page-login,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+/*.mui-content{height: 100%;}
+*/
+/*
+ 黑色幕布效果
+*/
+.black_content{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:1001;
+	-moz-opacity: 0.5;
+	opacity:.80;
+	filter: alpha(opacity=80);
+}
+/*
+ 中间白色区域
+*/
+.white_content {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	background-color: white;
+	z-index:1002;
+	overflow: auto;
+}

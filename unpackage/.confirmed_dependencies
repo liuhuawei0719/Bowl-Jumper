@@ -1,0 +1,305 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "images/shuijiao.jpg",
+      "js/angular.min.js",
+      "js/jquery.min.js",
+      "tab_3rd.json",
+      "images/60x60.gif",
+      "css/indexcss.css",
+      "indexData.json",
+      "js/forIndex.js",
+      "css/app.css",
+      "images/logo.png",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "js/jquery.waypoints.min.js",
+      "js/mui.lazyload.js",
+      "js/mui.lazyload.img.js",
+      "js/jquery-2.1.1.min.js",
+      "images/2.jpg",
+      "images/3.jpg",
+      "images/4.jpg",
+      "images/1.jpg",
+      "js/app.js",
+      "images/user-photo.png",
+      "examples/accordion.html",
+      "js/zepto.min.js",
+      "js/bmob-min.js",
+      "js/map.js"
+    ],
+    "refer": [
+      "examples/info.html",
+      "examples/template.html",
+      "examples/tab-webview-main.html",
+      "examples/pullrefresh_main.html",
+      "pullrefresh_with_tab.html",
+      "setting.html",
+      "require.html",
+      "information.html",
+      "active.html",
+      "userInfo.html",
+      "info.html",
+      "map.html",
+      "tab-webview-main.html"
+    ]
+  },
+  "examples/info.html": {
+    "resources": [
+      "images/qrcode.png",
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "examples/tab-webview-main.html": {
+    "resources": [
+      "examples/tab-webview-subpage-about.html"
+    ],
+    "refer": [
+      "examples/tab-webview-subpage-setting.html",
+      "examples/tab-webview-subpage-chat.html",
+      "examples/tab-webview-subpage-contact.html",
+      "examples/tab-webview-subpage-about.html"
+    ]
+  },
+  "examples/pullrefresh_main.html": {
+    "resources": [
+      "examples/pullrefresh_sub.html"
+    ],
+    "refer": [
+      "examples/pullrefresh_sub.html"
+    ]
+  },
+  "examples/pullrefresh_sub.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/tab-webview-subpage-chat.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "examples/tab-webview-subpage-setting.html": {
+    "resources": [
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "examples/tab-webview-subpage-contact.html": {
+    "resources": [
+      "images/60x60.gif",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/map.js",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "pullrefresh_with_tab.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "indexData.json",
+      "js/mui.min.js",
+      "images/1.jpg",
+      "css/mui.min.css",
+      "images/2.jpg",
+      "images/3.jpg",
+      "images/4.jpg"
+    ],
+    "refer": []
+  },
+  "login.html": {
+    "resources": [
+      "js/app.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/bmob-min.js",
+      "css/style.css",
+      "js/mui.enterfocus.js",
+      "images/sinaweibo.png",
+      "images/weixin.png",
+      "images/qq.png",
+      "css/login-reg-forget.css/login-reg-forget.css",
+      "css/login-reg-forget.css/login.css",
+      "images/signup.jpg",
+      "images/appbg.png",
+      "guide.html",
+      "fonts/mui.ttf",
+      "css/app.css"
+    ],
+    "refer": [
+      "index.html",
+      "reg.html",
+      "forget_password.html",
+      "unlock.html"
+    ]
+  },
+  "setting.html": {
+    "resources": [
+      "js/mui.locker.js",
+      "js/feedback.js",
+      "js/mui.view.js",
+      "libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+      "libs/easymob-webim-sdk/json2.js",
+      "libs/easymob-webim-sdk/jquery-1.11.1.js",
+      "libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/feedback-page.js",
+      "css/feedback-page.css"
+    ],
+    "refer": [
+      "login.html"
+    ]
+  },
+  "require.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "js/app.js",
+      "css/app.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css",
+      "js/service.js"
+    ],
+    "refer": []
+  },
+  "information.html": {
+    "resources": [
+      "js/mui.picker.min.js",
+      "css/app.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/mui.picker.min.css"
+    ],
+    "refer": []
+  },
+  "active.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "reg.html": {
+    "refer": [
+      "login.html"
+    ],
+    "resources": [
+      "fonts/mui.ttf",
+      "js/app.js",
+      "js/jquery.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/bmob-min.js",
+      "css/style.css",
+      "js/service.js"
+    ]
+  },
+  "userInfo.html": {
+    "resources": [
+      "js/jquery.min.js",
+      "js/app.js",
+      "css/app.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/bmob-min.js",
+      "images/user-photo.png",
+      "fonts/mui.ttf",
+      "js/service.js"
+    ],
+    "refer": []
+  },
+  "examples/accordion.html": {
+    "resources": [
+      "index.html"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "guide.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/guide1.jpg",
+      "images/guide2.jpg",
+      "images/guide3.jpg"
+    ],
+    "refer": [
+      "index.html",
+      "login.html"
+    ]
+  },
+  "forget_password.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/style.css"
+    ],
+    "refer": []
+  },
+  "map.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/map.js"
+    ],
+    "refer": []
+  },
+  "info.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/app.css",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "tab-webview-main.html": {
+    "resources": [
+      "tab-webview-subpage-about.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "tab-webview-subpage-about.html",
+      "tab-webview-subpage-setting.html",
+      "tab-webview-subpage-chat.html",
+      "tab-webview-subpage-contact.html"
+    ]
+  },
+  "unlock.html": {
+    "resources": [
+      "js/mui.locker.js"
+    ],
+    "refer": [
+      "login.html"
+    ]
+  }
+}

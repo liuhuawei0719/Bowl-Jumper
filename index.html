@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<title>筷到碗里来——作你肚子里的蛔虫</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css" />
+	    <link rel="stylesheet" href="css/app.css" />
+	</head>
+
+	<body data-ng-controller="ulCtrl">
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<div class="title">我的信息</div>
+						<div class="content">
+							<div class="mui-collapse-content" align="center" style="margin-top: 10px;height:120px;">
+								<a id="userHead"><img id="headImg" width="120px" height="120px" style="border-radius:360px" src="images/user-photo.png" /></a>
+							</div>
+						</div>
+						<div class="title" style="margin-bottom: 25px;">功能列表</div>
+						
+							<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+								<li class="mui-table-view-cell mui-media">
+									<a id="home">
+										<span class="mui-icon mui-icon-home mui-media-object mui-pull-left"></span>
+										<div class="mui-media-body mui-media-object" align="center">
+											<p class='mui-ellipsis'>首页</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a id="discussion">
+										<span class="mui-icon mui-icon-chatboxes mui-media-object mui-pull-left"></span>
+										<div class="mui-media-body mui-media-object" align="center">
+											<p class='mui-ellipsis'>附近</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a id="information">
+										<span class="mui-icon mui-icon-chatbubble mui-media-object mui-pull-left"></span>
+										<div class="mui-media-body mui-media-object" align="center">
+											<p class='mui-ellipsis'>资讯</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a id="require">
+										<span class="mui-icon mui-icon-compose mui-media-object mui-pull-left"></span>
+										<div class="mui-media-body mui-media-object" align="center">
+											<p class='mui-ellipsis'>需求</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a id="active">
+										<span class="mui-icon mui-icon-flag mui-media-object mui-pull-left"></span>
+										<div class="mui-media-body mui-media-object" align="center">
+											<p class='mui-ellipsis'>活动</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a id="home">
+										<span class="mui-icon mui-icon-flag mui-media-object mui-pull-left"></span>
+										<div class="mui-media-body mui-media-object" align="center">
+											<p class='mui-ellipsis'>主题</p>
+										</div>
+									</a>
+								</li>
+								<li class="mui-table-view-cell mui-media">
+									<a id="setting">
+										<span class="mui-icon mui-icon-gear mui-media-object mui-pull-left"></span>
+										<div class="mui-media-body mui-media-object" align="center">
+											<p class='mui-ellipsis'>设置</p>
+										</div>
+									</a>
+								</li>
+							</ul>
+						
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<div id="header" class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+					<a id="info" class="mui-icon mui-icon-info-filled mui-pull-right" style="margin-left:0;"></a>
+					<a id="_trigger" class="mui-icon mui-icon-search mui-pull-right" style=""></a>
+					<h1 class="mui-title">筷到碗里来</h1>
+					<div class="zhezhao" id="zhezhao">
+						<div style="position:relative;z-index: 20;" id="searchbox" class="mui-input-row mui-search">
+							<input data-ng-model="input_food" id="search_input" type="search" class="mui-input-speech mui-input-clear" placeholder="今天想吃点啥？">
+							<ul style="margin:0">
+								<li data-ng-repeat="food in foods | filter:input_food">
+									<a href="">{{food.name}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<nav id="footer" class="mui-bar mui-bar-tab">
+						<a data-ng-repeat="tab_label in tab_label" class="mui-tab-item mui-active" href="{{tab_label.href}}">
+							<span class="mui-icon mui-icon-{{tab_label.icon}}"></span>
+							<span class="mui-tab-label">{{tab_label.name}}</span>
+						</a>
+					</nav>
+					<div class="mui-scroll">
+						<div class="mui-content">
+							<div id="tabbar" class="mui-control-content mui-active">
+								<div class="mui-content">
+									<div id="slider" class="mui-slider">
+										<div class="mui-slider-group mui-slider-loop">
+											<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+											<div data-ng-repeat="slider_item in slider_item" class="mui-slider-item">
+												<a href="examples/accordion.html">
+													<img src="images/{{slider_item.img}}.jpg">
+													<p class="mui-slider-title">{{slider_item.caption}}</p>
+												</a>
+											</div>
+
+											<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+											<div class="mui-slider-item mui-slider-item-duplicate">
+												<a href="#">
+													<img src="images/1.jpg">
+													<p class="mui-slider-title">幸福就是可以一起睡觉</p>
+												</a>
+											</div>
+										</div>
+										<div class="mui-slider-indicator mui-text-right">
+											<div class="mui-indicator mui-active"></div>
+											<div class="mui-indicator"></div>
+											<div class="mui-indicator"></div>
+											<div class="mui-indicator"></div>
+										</div>
+									</div>
+								</div>
+
+			<div class="mui-content" id="list">
+		        <ul class="mui-table-view mui-grid-view mui-grid-9">
+		            <li data-ng-repeat="grid_view in grid_view" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"> 
+		                  <a href="pullrefresh_with_tab.html">
+		                  <span class="mui-icon mui-icon-{{grid_view.icon}}"></span>
+		                    <div class="mui-media-body">{{grid_view.name}}</div>
+		                    </a>
+		            </li>
+		        </ul> 
+			</div>
+		</div>
+
+		<!--tabbar end-->
+
+		<!-- tab-chat 第二个tab页面-->
+		<div id="tabbar-with-chat" class="mui-control-content">
+			<div data-ng-repeat="card in card" class="mui-card">
+				<div class="mui-card-header mui-card-media">
+					<div class="mui-card-media-object mui-pull-left">
+						<img src="images/logo.png" width="34px" height="34px" />
+					</div>
+					<div class="mui-card-media-body">
+						<p>{{card.name}}</p>
+						<p class="mui-ellipsis">{{card.time}}</p>
+					</div>
+				</div>
+				<div class="mui-card-content mui-card-media" style="height:40vw">
+					<img src="images/{{card.img}}.jpg"/>
+				</div>
+				<div class="mui-card-footer">
+					<a class="mui-card-link">Like</a>
+					<a class="mui-card-link">Comment</a>
+					<a class="mui-card-link">Read more</a>
+				</div>
+			</div> 
+		</div>
+
+		<!--第三个tab页面-->
+		<div id="tabbar-with-contact" class="mui-control-content">
+			<div class="title">这是div模式选项卡中的第3个子页面，该页面展示一个通讯录示例.</div>
+				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+					<li data-ng-repeat="tab_3rd in tab_3rd" class="mui-table-view-cell">
+						<div class="mui-slider-cell">
+							<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="images/60x60.gif" />
+							</div>
+						<div class="oa-contact-content mui-table-cell">
+							<div class="mui-clearfix">
+								<h4 class="oa-contact-name">{{tab_3rd.name}}</h4>
+								<span class="oa-contact-position mui-h6">{{tab_3rd.occupation}}</span>
+							</div>
+								<p class="oa-contact-email mui-h6">
+								{{tab_3rd.email}}
+								</p>
+							</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+		</div>
+
+			<!--第四个tab页面-->
+			<div id="tabbar-with-map" class="mui-control-content">
+								<div class="title">这是div模式选项卡中的第4个子页面，该页面展示一个常见的设置示例.</div>
+								<ul class="mui-table-view"> 
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											新消息通知
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											隐私
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											通用
+										</a>
+									</li>
+								</ul>
+								<ul class="mui-table-view" style="margin-top: 25px;">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											关于mui
+										</a>
+									</li>
+								</ul>
+
+								<ul class="mui-table-view" style="margin-top: 25px;">
+									<li class="mui-table-view-cell">
+										<a style="text-align: center;color: #FF3B30;">
+											退出登录
+										</a>
+									</li>
+								</ul>
+						</div>
+						</div>
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<!--<script src="js/jquery-2.1.1.min.js"></script>-->
+		<script src="js/zepto.min.js" type="text/javascript">
+		</script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/forIndex.js"></script>
+		<script src="js/bmob-min.js"></script>
+		<script src="js/app.js"></script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=1f927cf7ffd0ae1e082c26a49f264dfe"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script src="js/map.js"></script> 
+		<script type="text/javascript" charset="utf-8">
+			(function($, doc) {
+				$.init();
+				var settings = app.getSettings();
+				//当窗口首次载入的时候执行
+				window.addEventListener('show', function() {
+					//获取用户状态
+					var state = app.getState();
+					if(state.headImg!="")
+					{
+						document.getElementById("headImg").src=state.headImg;
+					}
+				}, false);
+				$.plusReady(function() {
+					var settingPage = $.preload({
+						"id": 'setting',
+						"url": 'setting.html'
+					});
+					//设置
+					var settingButton = doc.getElementById('setting');
+					settingButton.addEventListener('tap', function(event) {
+						$.openWindow({
+							id: 'setting',
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					});
+					//--
+					$.oldBack = mui.back;
+					var backButtonPress = 0;
+					$.back = function(event) {
+						backButtonPress++;
+						if (backButtonPress > 1) {
+							plus.runtime.quit();
+						} else {
+							plus.nativeUI.toast('再按一次退出应用');
+						}
+						setTimeout(function() {
+							backButtonPress = 0;
+						}, 1000);
+						return false;
+					};
+					
+					//发布内容的浮动窗口
+					// 创建悬浮窗口
+					var floatw=null;
+					function floatWebview(){
+						if(floatw){ // 避免快速多次点击创建多个窗口
+							return;
+						}
+						floatw=plus.webview.create("publish.html","publish.html",{width:'90%',height:'420px',margin:"auto",background:"rgba(0,0,0,0.8)",scrollIndicator:'none',scalable:false,popGesture:'none'});
+						floatw.addEventListener("loaded",function(){
+							floatw.show('fade-in',300);
+							floatw=null;
+						},false);
+					}
+//					//发布功能
+//					document.getElementById("publish").addEventListener('tap', function(e) {
+//						floatWebview()
+//					});
+					
+					//---------------侧滑菜单--------------------
+					//主界面和侧滑菜单界面均支持区域滚动；
+					mui('#offCanvasSideScroll').scroll();
+					mui('#offCanvasContentScroll').scroll();
+					
+					//---菜单跳转---------
+					document.getElementById("userHead").addEventListener("tap",function(e){
+		      			mui.openWindow({
+		      				url: 'userInfo.html',
+							id: 'userInfo'
+						});
+		      		});
+		      		document.getElementById("home").addEventListener("tap",function(e){
+		      			mui.openWindow({
+		      				url: 'index.html',
+							id: 'index'
+						});
+		      		});
+		      		document.getElementById("discussion").addEventListener("tap",function(e){
+		      			mui.openWindow({
+		      				url: 'map.html',
+							
+						});
+		      		});
+		      		document.getElementById("information").addEventListener("tap",function(e){
+		      			mui.openWindow({
+		      				url: 'information.html',
+							id: 'information'
+						});
+		      		});
+		      		document.getElementById("require").addEventListener("tap",function(e){
+		      			mui.openWindow({
+		      				url: 'require.html',
+							id: 'require'
+						});
+		      		});
+		      		document.getElementById("active").addEventListener("tap",function(e){
+		      			mui.openWindow({
+		      				url: 'active.html',
+							id: 'active'
+						});
+		      		});
+		      		//--------- 页面点击 -----------
+//		      		document.getElementById("from_life").addEventListener("tap",function(e){
+//		      			mui.openWindow({
+//		      				url: 'discussion.html',
+//							id: 'discussion'
+//						});
+//		      		});
+		      		//-------  菜单按钮功能  -------
+//		      		document.getElementById("home").addEventListener("tap",function(e){
+//		      			mui.openWindow({
+//		      				url: 'information.html',
+//							id: 'information'
+//						});
+//		      		});
+				});
+			}(mui, document));
+	</script>
+	
+	</body>
+</html>
